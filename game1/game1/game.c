@@ -1,8 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"game.h"
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
 
 void Initboard(char board[Row][Col], int row, int col){
 	int i = 0;
@@ -16,7 +13,8 @@ void Initboard(char board[Row][Col], int row, int col){
 
 void Displayboard(char board[Row][Col], int row, int col) {
 	int i = 0;
-	for (i = 0; i < row; i++) {
+	for (i = 0; i < row; i++)
+	{
 		//一行打印数据一行打印分割行
 		int j = 0;
 		for (j = 0; j < col; j++) {
@@ -74,7 +72,7 @@ void Computermove(char board[Row][Col], int row, int col) {
 	}
 }
 
-Isfull(char board[Row][Col], int row, int col) {
+static int Isfull(char board[Row][Col], int row, int col) {
 	int i = 0;
 	int j = 0;
 	for (i = 0; i < row; i++) {
@@ -89,19 +87,19 @@ Isfull(char board[Row][Col], int row, int col) {
 char Iswin(char board[Row][Col], int row, int col) {
 	int i = 0;
 	for (i = 0; i < row; i++) {//横
-		if (board[i][0] == board[i][1] == board[i][2] && board[i][0] != ' ') {
+		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
 			return board[i][0];
 		}
 	}
 	for (i = 0; i < col; i++) {//列
-		if (board[0][i] == board[1][i] == board[2][i] && board[0][i] != ' ') {
+		if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ') {
 			return board[0][i];
 		}
 	}
-	if (board[0][0] == board[1][1] == board[2][2] && board[0][0] != ' ') {
+	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
 		return board[0][0];
 	}
-	if (board[0][2] == board[1][1] == board[2][0] && board[1][1] != ' ') {
+	if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[1][1] != ' ') {
 		return board[0][0];
 	}
 	//判断平局

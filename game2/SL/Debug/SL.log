@@ -1,0 +1,3 @@
+﻿  game.c
+D:\university\C\c-study\game2\SL\game.c(6,69): warning C4029: 声明的形参表不同于定义
+  SL.vcxproj -> D:\university\C\c-study\game2\Debug\SL.exe
